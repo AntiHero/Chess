@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier --check . && eslint --cache . --ext .js,.ts,.tsx",
-    "start:server": "npm run start --workspace=packages/server",
+    "dev:server": "npm run dev --workspace=packages/server",
     "prepare": "husky install"
   },
   "repository": {

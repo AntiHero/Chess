@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ""
+    "start:server": "npm run start --workspace=packages/server"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-const path = require("path");
+const { resolve }= require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -11,7 +11,7 @@ const stylesHandler = isProduction
 const config = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
@@ -21,7 +21,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template:  resolve(__dirname, "public/index.html"),
     }),
   ],
   module: {

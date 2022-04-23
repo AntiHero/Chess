@@ -15,7 +15,9 @@ const config = {
   },
   devServer: {
     open: true,
+    hot: true,
     host: "localhost",
+    watchFiles: ['index.html'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -49,12 +51,6 @@ const config = {
 };
 
 module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
-
-    config.plugins.push(new MiniCssExtractPlugin());
-  } else {
-    config.mode = "development";
-  }
+  if (isProduction) config.plugins.push(new MiniCssExtractPlugin());
   return config;
 };

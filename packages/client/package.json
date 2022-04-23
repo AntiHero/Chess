@@ -6,9 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --node-env=production",
-    "build:dev": "webpack --mode=development",
     "build:prod": "webpack --node-env=production",
-    "serve": "webpack serve"
+    "serve": "webpack serve --node-env=development"
   },
   "keywords": [],
   "author": "",

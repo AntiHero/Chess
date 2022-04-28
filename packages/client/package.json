@@ -1,13 +1,13 @@
 {
-  "name": "my-webpack-project",
+  "name": "chess-client",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "chess-cleint",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --node-env=production",
     "build:prod": "webpack --node-env=production",
-    "serve": "webpack serve --node-env=development"
+    "serve": "webpack serve --node-env=development --open"
   },
   "keywords": [],
   "author": "",
@@ -25,5 +25,8 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.5.0"
   }
 }

@@ -1,26 +1,52 @@
 module.exports = {
   env: {
-    browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'eslint:recommended',
-    'prettier',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  extends: ['eslint:recommended', 'airbnb', 'prettier'],
+  overrides: [
+    {
+      parser: '@typescript-eslint/parser',
+      files: ['packages/server/**/*.ts'],
+      extends: [
+        'eslint:recommended',
+        'airbnb',
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'prettier',
+      ],
+      plugins: ['@typescript-eslint', 'jest'],
+      parserOptions: {
+        project: ['packages/server/tsconfig.json'],
+      },
+      env: {
+        node: true,
+        'jest/globals': true,
+      },
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['react', '@typescript-eslint', 'import'],
+    {
+      files: ['packages/client/**/*.ts', 'packages/client/**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'plugin:react/recommended',
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      plugins: ['react', '@typescript-eslint', 'jest'],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        project: ['packages/client/tsconfig.json'],
+      },
+      env: {
+        browser: true,
+        'jest/globals': true,
+      },
+    },
+  ],
+
   rules: {
     'no-console': 'off',
     'import/no-unresolved': 'error',
-  }
+  },
 };
